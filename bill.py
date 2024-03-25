@@ -44,9 +44,9 @@ class PDFReport:
         pdf.cell(w=200, h=40, txt="Total amount:")
         pdf.cell(w=100, h=40, txt=f"{bill.amount}",  ln=1)
         pdf.cell(w=100, h=40, txt=f"{flatmate1.name}:")
-        pdf.cell(w=100, h=40, txt=f"£{flatmate1_amount}",  ln=1)
+        pdf.cell(w=100, h=40, txt=f"£ {flatmate1_amount}",  ln=1)
         pdf.cell(w=100, h=40, txt=f"{flatmate2.name}:")
-        pdf.cell(w=100, h=40, txt=f"£{flatmate2_amount}",  ln=1)
+        pdf.cell(w=100, h=40, txt=f"£   {flatmate2_amount}",  ln=1)
         pdf.output(self.filename)
 
 
@@ -57,4 +57,4 @@ mary = Flatmate(name="Mary", days_in_house=25)
 
 print("John pays", john.pays(bill=bill, flatmate2=mary))
 print("Mary pays", mary.pays(bill=bill, flatmate2=john))
-pdf = PDFReport("test.pdf").generate(john, mary, bill)
+pdf = PDFReport("bill.pdf").generate(john, mary, bill)
